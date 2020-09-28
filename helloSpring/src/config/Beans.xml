@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+
+    default-init-method="init"
+    default-destroy-method="destroy">
+    <!--声明bean的生命周期 init-method="init" destroy-method="destroy"     -->
+    <bean id="helloWorld" class="com.spdb.tutorialspoint.HelloWorld" >
+        <property name="message1" value="Hello, SPDB welcome to you."></property>
+        <property name="message2" value="Hello, HeFei welcome to you."></property>
+    </bean>
+    <!--<bean class="com.spdb.tutorialspoint.InitHelloWorld"></bean>
+    后置处理器-->
+    <bean id="helloIndia" class="com.spdb.tutorialspoint.HelloIndia" parent="helloWorld">
+        <property name="message1" value="Hello, xiao yang"></property>
+        <property name="message3" value="Hello, 杨琪"></property>
+    </bean>
+</beans>

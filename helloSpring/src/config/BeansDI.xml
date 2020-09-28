@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--1.采用构造函数注入方式， 可行-->
+    <bean name="textEditor" class="com.spdb.DI.TextEditor">
+        <constructor-arg ref="spellChecker"/>
+    </bean>
+    <!--2.采用设值函数的注入方式-->
+    <bean id="textEditor2" class="com.spdb.DI.TextEditor">
+        <property name="spellChecker" ref="spellChecker"/>
+    </bean>
+
+    <!--3.采用byName方式-->
+    <bean id="textEditor4" class="com.spdb.DI.TextEditor" autowire="byName">
+        <property name="name" value="spellChecker"/>
+    </bean>
+
+    <bean id="spellChecker" class="com.spdb.DI.SpellChecker">
+    </bean>
+
+    <!--3.采用内部注入beans方式,目前出错-->
+    <!--<bean id="textEditor3" class="com.spdb.DI.TextEditor">-->
+        <!--<property name="spellChecker">-->
+            <!--<bean id="spellChecker" class="com.spdb.DI.SpellChecker"/>-->
+        <!--</property>-->
+    <!--</bean>-->
+</beans>
