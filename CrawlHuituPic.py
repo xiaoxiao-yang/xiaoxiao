@@ -41,6 +41,6 @@ def getimgs(page):
                     print(str(count) + "----" + i.get('imgBigUrl'))
                 except Exception as e:
                     print(e)
-
+#测试软件怎么用的
 if __name__ == '__main__':
     getimgs(4)
